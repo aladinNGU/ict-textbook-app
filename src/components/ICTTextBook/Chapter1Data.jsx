@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import ComprehensionQuestions, {
+  comprehensionData,
+} from "./ComprehensionQuestions";
+import CreativeQuestions, { creativeQuestionsData } from "./CreativeQuestions";
+import KnowledgeBaseQA, { qaData } from "./KnowledgeBaseQA";
+import MCQ, { mcqData } from "./mcq";
+import VisualLearningGallery, { visualData } from "./VisualLearningGallery";
 
-const courseData = [
+export const ch1Data = [
   {
     id: "ch1",
     title: "Chapter 1",
@@ -1882,219 +1888,31 @@ const courseData = [
           </div>
         ),
       },
+      {
+        id: "visualcontents",
+        title: `Visual Learning Gallery (${visualData.length})`,
+        content: <VisualLearningGallery />,
+      },
+      {
+        id: "kbqa",
+        title: `Knowledge-Based Q&A (${qaData.length})`,
+        content: <KnowledgeBaseQA />,
+      },
+      {
+        id: "comprehensiveqa",
+        title: `Comprehensive Q&A (${comprehensionData.length})`,
+        content: <ComprehensionQuestions />,
+      },
+      {
+        id: "creativeqa",
+        title: `Creative Q&A (${creativeQuestionsData.length})`,
+        content: <CreativeQuestions />,
+      },
+      {
+        id: "mcq",
+        title: `Multiple Choice Q&A (${mcqData.length})`,
+        content: <MCQ />,
+      },
     ],
   },
-  {
-    id: "ch2",
-    title: "Chapter 2",
-    fullTitle: "Data Communication and Computer Networks",
-    sections: [],
-  },
-  {
-    id: "ch3-1",
-    title: "Chapter 3 (1st Part)",
-    fullTitle: "Numbering Systems",
-    sections: [],
-  },
-  {
-    id: "ch3-2",
-    title: "Chapter 3 (2nd Part)",
-    fullTitle: "Digital Devices",
-    sections: [],
-  },
-  {
-    id: "ch4",
-    title: "Chapter 4",
-    fullTitle: "Introduction to Web Design and HTML",
-    sections: [],
-  },
-  {
-    id: "ch5",
-    title: "Chapter 5",
-    fullTitle: "Programming Language",
-    sections: [],
-  },
-  {
-    id: "ch6",
-    title: "Chapter 6",
-    fullTitle: "Database Management System",
-    sections: [],
-  },
 ];
-
-export default function ICTDashboard() {
-  const [activeChapter, setActiveChapter] = useState(courseData[0]);
-  const [activeTopic, setActiveTopic] = useState(courseData[0].sections[0]);
-  const [openSections, setOpenSections] = useState({ 1.1: true }); // Default open 1.1
-
-  const handleChapterClick = (chapter) => {
-    setActiveChapter(chapter);
-    if (chapter.sections.length > 0) {
-      setActiveTopic(chapter.sections[0]);
-    } else {
-      setActiveTopic(null);
-    }
-    setOpenSections({}); // Reset expanded sections on chapter change
-  };
-
-  const toggleSection = (sectionId) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [sectionId]: !prev[sectionId],
-    }));
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-100 flex flex-col font-sans">
-      {/* HEADER */}
-      <header className="bg-primary text-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Information and Communication Technology for Classes 11 and 12
-          </h1>
-        </div>
-      </header>
-
-      {/* MENU BAR */}
-      <nav className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="flex space-x-1 overflow-x-auto py-2">
-            {courseData.map((chapter) => (
-              <li key={chapter.id}>
-                <button
-                  onClick={() => handleChapterClick(chapter)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-                    activeChapter.id === chapter.id
-                      ? "bg-primary/10 text-primary font-bold"
-                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                  }`}
-                >
-                  {chapter.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-
-      {/* MAIN LAYOUT */}
-      <div className="flex-1 max-w-7xl w-full mx-auto flex flex-col md:flex-row px-4 sm:px-6 lg:px-8 py-8 gap-8">
-        {/* SIDEBAR */}
-        <aside className="w-full md:w-80 shrink-0">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
-            <div className="p-4 border-b border-gray-200 bg-gray-50 rounded-t-xl">
-              <h2 className="font-bold text-gray-800 text-lg">
-                Table of Contents
-              </h2>
-              <p className="text-xs text-gray-500 mt-1">
-                {activeChapter.fullTitle}
-              </p>
-            </div>
-
-            <ul className="p-2 space-y-1">
-              {activeChapter.sections.map((section) => (
-                <li key={section.id}>
-                  {section.subsections ? (
-                    /* Collapsible Section */
-                    <div>
-                      <button
-                        onClick={() => toggleSection(section.id)}
-                        className={`w-full flex items-center justify-between px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                          openSections[section.id]
-                            ? "bg-base-200 text-primary"
-                            : "text-gray-700 hover:bg-gray-100"
-                        }`}
-                      >
-                        <span>{section.title}</span>
-                        <svg
-                          className={`w-4 h-4 transition-transform ${openSections[section.id] ? "rotate-180" : ""}`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
-
-                      {/* Indented Subsections */}
-                      {openSections[section.id] && (
-                        <ul className="mt-1 ml-4 border-l-2 border-gray-200 pl-2 space-y-1">
-                          {section.subsections.map((sub) => (
-                            <li key={sub.id}>
-                              <button
-                                onClick={() => setActiveTopic(sub)}
-                                className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors ${
-                                  activeTopic?.id === sub.id
-                                    ? "bg-primary text-white font-medium shadow-sm"
-                                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                                }`}
-                              >
-                                {sub.title}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ) : (
-                    /* Standard Section */
-                    <button
-                      onClick={() => setActiveTopic(section)}
-                      className={`w-full text-left px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                        activeTopic?.id === section.id
-                          ? "bg-primary text-white shadow-sm"
-                          : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                    >
-                      {section.title}
-                    </button>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
-        {/* MAIN CONTENT */}
-        <main className="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-10 min-h-[60vh]">
-          {activeTopic ? (
-            <article className="prose max-w-none text-gray-800">
-              <div className="mb-6 border-b border-gray-200 pb-4">
-                <h2 className="text-3xl font-extrabold text-primary m-0">
-                  {activeTopic.title}
-                </h2>
-                <p className="text-sm text-gray-500 mt-2">
-                  {activeChapter.fullTitle}
-                </p>
-              </div>
-
-              <div className="leading-relaxed space-y-4">
-                {activeTopic.content}
-              </div>
-            </article>
-          ) : (
-            <div className="flex items-center justify-center h-full text-gray-500">
-              Select a topic from the sidebar to view its content.
-            </div>
-          )}
-        </main>
-      </div>
-
-      {/* FOOTER */}
-      <footer className="bg-gray-800 text-gray-300 py-6 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm">
-          <p>
-            &copy; {new Date().getFullYear()} Information and Communication
-            Technology. All rights reserved.
-          </p>
-          <p className="mt-1 text-gray-500">Designed for Classes 11 and 12</p>
-        </div>
-      </footer>
-    </div>
-  );
-}
