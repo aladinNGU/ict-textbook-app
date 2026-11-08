@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const comprehensionData = [
   {
@@ -241,41 +241,230 @@ export const comprehensionData = [
     q: '"ICT-based production systems are essential for building developed nations" — explain. [Rajshahi Board 2023]',
     a: "Developed nations rely on automation, CAD/CAM, and CNC machines to maximize production efficiency and quality. ICT streamlines supply chains, reduces human error, and increases industrial output, which is vital for economic growth and development.",
   },
+  {
+    id: 49,
+    q: 'Differentiate between "Data" and "Information" with an example from the text.',
+    a: "Data is the raw material of information used as input, like random letters or numbers (e.g., a student's subject-wise marks). Information is processed, meaningful data obtained as output that gives a clear understanding (e.g., the student's name, roll number, all subject marks, and total marks combined).",
+  },
+  {
+    id: 50,
+    q: 'Explain the etymology (origin) of the word "Technology".',
+    a: "The word 'Technology' comes from two Greek words: 'Techne' (meaning art, craft, or skill of the hand) and 'Logos' (meaning study or science). Together, it literally means the study or application of skills or tools.",
+  },
+  {
+    id: 51,
+    q: "Explain the significance of the Right to Information Act 2009 in Bangladesh.",
+    a: "Enacted in 2009, this act legally recognizes the free flow of information in Bangladesh. It helps people access information easily, with the goal of building a scientific and information-based modern society.",
+  },
+  {
+    id: 52,
+    q: 'What is the "digital divide" in the context of the Global Village?',
+    a: "The digital divide is the gap between people who have access to modern ICT tools and those who do not. Developed countries often enjoy advanced technologies, while developing countries lack access or use outdated systems, creating a wide global gap.",
+  },
+  {
+    id: 53,
+    q: "Describe the evolution of the internet from ARPANET.",
+    a: "ARPANET was created in 1969 by the U.S. Department of Defense for internal communication. In 1982, the invention of the TCP/IP protocol made it possible to connect different computers to a common network, establishing the foundation of the modern internet.",
+  },
+  {
+    id: 54,
+    q: "What is a notable example of a digital telephone network, and what is its main advantage?",
+    a: "ISDN (Integrated Services Digital Network) is a notable example. Its main advantage is that both voice calls and data can be transmitted over the same line, providing advanced security and enabling lower-cost international communication.",
+  },
+  {
+    id: 55,
+    q: "Explain the concept of M2M (Machine to Machine) communication.",
+    a: "M2M is the forerunner of IoT, where one machine automatically controls another through wired or wireless means. This allowed the collection, processing, and exchange of data without human involvement.",
+  },
+  {
+    id: 56,
+    q: "Differentiate between Phishing and Vishing.",
+    a: "Phishing involves creating a fake website that mimics a legitimate one to trick users into revealing personal or banking information. Vishing (voice phishing) uses phone calls to deceive people—often claiming they have won a lottery—to steal bank information.",
+  },
+  {
+    id: 57,
+    q: "What is a 'Hidden Layer' in a Neural Network?",
+    a: "The hidden layer lies between the input and output units in a neural network. Composed of artificial neurons, it is trained to process data, recognize patterns, and produce a likely correct output when a new input is given.",
+  },
+  {
+    id: 58,
+    q: "What is the difference between GPS and GIS?",
+    a: "GPS (Global Positioning System) is a satellite-based system used to determine the exact location of an object on Earth. GIS (Geographic Information System) is a computer-based system that analyzes geographic data for planning, development, and management (like urban planning or land surveys).",
+  },
+  {
+    id: 59,
+    q: "Explain the four steps of a biometric system.",
+    a: "1) Capture: Collecting a unique physiological or behavioral sample. 2) Extraction: Analyzing the sample and creating a template stored in a database. 3) Comparison: Comparing a new sample's template with stored templates. 4) Matching: Verifying if the new data matches existing records.",
+  },
+  {
+    id: 60,
+    q: 'What is "Recycle Plagiarism"?',
+    a: "Recycle plagiarism (also known as self-plagiarism) refers to reusing or borrowing content from one's own previous work or document without proper citation.",
+  },
+  {
+    id: 61,
+    q: "What is the significance of the Scanning Tunneling Microscope (STM) in Nanotechnology?",
+    a: "Invented in 1980, the STM allowed scientists to observe atoms directly for the first time. This invention made nanotechnology a reality by enabling the study and manipulation of matter at the atomic level.",
+  },
+  {
+    id: 62,
+    q: "Differentiate between White Hat and Black Hat hackers.",
+    a: "White Hat hackers work to identify security issues for protection and do not cause harm. Black Hat hackers illegally break into systems to steal data, cause financial harm, or damage systems.",
+  },
+  {
+    id: 63,
+    q: "What is M-Commerce? Provide examples.",
+    a: "M-Commerce (Mobile Commerce) is the convenience of shopping or conducting financial transactions from anywhere using a mobile phone. Examples include mobile banking, buying tickets via mobile, or sending money digitally.",
+  },
+  {
+    id: 64,
+    q: 'Explain the concept of "Big Data" and its main characteristics.',
+    a: "Big Data refers to a massive collection of rapidly generated, diverse, and complex data that cannot be easily analyzed using traditional software. Its main characteristics are generally known as the 5Vs.",
+  },
+  {
+    id: 65,
+    q: "What is the significance of the Curiosity Rover?",
+    a: "Launched by NASA in 2012, Curiosity is an advanced robotic vehicle on Mars. It is known as a 'complete chemical laboratory' and includes scientific instruments, powerful cameras, a weather station, and a laser system to break rocks.",
+  },
+  {
+    id: 66,
+    q: "Explain how RFID is used in animal tracking.",
+    a: "A capsule-shaped RFID tag (containing a chip, coil, and antenna) is inserted into the animal's body using a syringe. This tag allows for the determination of the animal's location and identification without human involvement.",
+  },
+  {
+    id: 67,
+    q: "Briefly explain the Digital Security Act 2018 regarding unauthorized access.",
+    a: "The act prohibits unauthorized access to electronic devices or systems to collect data or copy content. It also makes it illegal to illegally access critical information infrastructure to damage, destroy, or alter computer systems or networks.",
+  },
+  {
+    id: 68,
+    q: "Explain the concept of 'Telepresence' in Virtual Reality.",
+    a: "Telepresence is the feeling of presence from a distance. Using advanced computer graphics, users can experience remote environments virtually, such as pilots training in virtual planes or new drivers gaining experience as if they are on real roads.",
+  },
+  {
+    id: 69,
+    q: "What is the role of 'Effectors' in Virtual Reality?",
+    a: "Effectors are special interface devices used in virtual reality that connect the user to the virtual environment. Examples include head-mounted displays (HMD), data gloves, and full-body suits.",
+  },
+  {
+    id: 70,
+    q: "What is a 'Dry Lab' in the context of biological research?",
+    a: "A dry lab refers to biological research conducted entirely within a computer using data and algorithms. Unlike a wet lab, it does not require physical chemical reagents, allowing scientists to perform analyses, 3D modeling, and simulations to narrow down candidates before physical testing.",
+  },
 ];
 
 export default function ComprehensionQuestions() {
   const [openItem, setOpenItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredData = comprehensionData.filter(
-    (item) =>
-      item.q.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.a.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  // Pagination States
+  const [currentPage, setCurrentPage] = useState(1);
+  const [jumpPageInput, setJumpPageInput] = useState("");
+  const itemsPerPage = 10;
+
+  // Ref for scrolling to top of list
+  const listTopRef = useRef(null);
+
+  // Reset to page 1 whenever search term changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
+  // Updated Search Logic (Strict ID Search for Numbers)
+  const filteredData = comprehensionData.filter((item) => {
+    const searchLower = searchTerm.toLowerCase().trim();
+
+    // If search is empty, show all
+    if (searchLower === "") return true;
+
+    // Check if the search term is purely a number (e.g., "9", "15")
+    const isStrictNumber = /^\d+$/.test(searchLower);
+
+    if (isStrictNumber) {
+      // If it's a pure number, strictly match ONLY the exact ID.
+      return item.id.toString() === searchLower;
+    }
+
+    // Otherwise, perform standard text search on question and answer
+    const matchesQuestion = item.q.toLowerCase().includes(searchLower);
+    const matchesAnswer = item.a.toLowerCase().includes(searchLower);
+
+    return matchesQuestion || matchesAnswer;
+  });
+
+  // Pagination Logic
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
   const toggleAccordion = (id) => {
     setOpenItem(openItem === id ? null : id);
   };
 
-  return (
-    <div className="w-full font-sans py-4">
-      <div className="mb-8">
-        {/* <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <h1 className="text-3xl font-extrabold text-primary mb-2">
-              Comprehension Questions
-            </h1>
-            <p className="text-gray-600">
-              Chapter 1: Information and Communication Technology
-            </p>
-          </div>
-          <span className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-bold rounded-md text-primary bg-primary/10 whitespace-nowrap">
-            Total: {comprehensionData.length} Questions
-          </span>
-        </div> */}
+  // Handle page change with smooth scroll
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    if (listTopRef.current) {
+      listTopRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-        {/* Search Bar */}
-        <div className="relative">
+  // Handle Jump to specific page
+  const handleJumpToPage = (e) => {
+    e.preventDefault();
+    const pageNum = parseInt(jumpPageInput, 10);
+    if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
+      handlePageChange(pageNum);
+      setJumpPageInput("");
+    } else {
+      alert(`Please enter a valid page number between 1 and ${totalPages}`);
+    }
+  };
+
+  // Handle Jump to a random page
+  const handleRandomPage = () => {
+    if (totalPages > 1) {
+      const randomPage = Math.floor(Math.random() * totalPages) + 1;
+      handlePageChange(randomPage);
+    }
+  };
+
+  // Generate page numbers to display
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = totalPages - 3; i <= totalPages; i++) pageNumbers.push(i);
+      } else {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = currentPage - 1; i <= currentPage + 1; i++)
+          pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      }
+    }
+    return pageNumbers;
+  };
+
+  return (
+    <div className="w-full font-sans flex flex-col min-h-screen">
+      {/* Search Bar Area */}
+      <div className="mb-8 sticky top-0 z-10 bg-gray-50/90 backdrop-blur-md pt-4 pb-4 px-2 -mx-2 border-b border-gray-200">
+        <div className="relative max-w-4xl mx-auto">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <svg
               className="h-5 w-5 text-gray-400"
@@ -293,41 +482,76 @@ export default function ComprehensionQuestions() {
           </div>
           <input
             type="text"
-            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary sm:text-md shadow-sm transition-all"
-            placeholder="Search questions or keywords..."
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 sm:text-md shadow-sm transition-all"
+            placeholder="Search by strict ID (e.g., 9) or keywords..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
 
+      {/* List Header Info */}
+      <div
+        ref={listTopRef}
+        className="mb-4 text-sm font-medium text-gray-500 flex justify-between items-center px-2"
+      >
+        <span>
+          Showing{" "}
+          <span className="text-gray-900 font-bold">
+            {filteredData.length > 0 ? indexOfFirstItem + 1 : 0}
+          </span>{" "}
+          to{" "}
+          <span className="text-gray-900 font-bold">
+            {Math.min(indexOfLastItem, filteredData.length)}
+          </span>{" "}
+          of{" "}
+          <span className="text-gray-900 font-bold">{filteredData.length}</span>{" "}
+          questions
+        </span>
+        <span className="hidden sm:inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+          Page {currentPage} of {totalPages || 1}
+        </span>
+      </div>
+
       {/* Accordion List */}
-      <div className="space-y-4">
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => {
+      <div className="space-y-4 flex-grow max-w-4xl mx-auto w-full">
+        {currentItems.length > 0 ? (
+          currentItems.map((item) => {
             const isOpen = openItem === item.id;
             return (
               <div
                 key={item.id}
-                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${isOpen ? "border-primary ring-1 ring-primary/20" : "border-gray-200"}`}
+                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${
+                  isOpen
+                    ? "border-primary ring-1 ring-primary/20"
+                    : "border-gray-200"
+                }`}
               >
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full flex items-start justify-between p-5 text-left focus:outline-none gap-4"
+                  className="w-full flex items-start justify-between p-5 text-left focus:outline-none gap-4 group"
                 >
                   <div className="flex items-start">
-                    <span className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 text-primary font-bold text-sm mr-4 mt-0.5">
+                    <span
+                      className={`flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full font-bold text-sm mr-4 mt-0.5 transition-colors ${isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary group-hover:bg-primary/20"}`}
+                    >
                       {item.id}
                     </span>
                     <span
-                      className={`font-semibold text-md sm:text-lg leading-snug ${isOpen ? "text-primary" : "text-gray-800"}`}
+                      className={`font-semibold text-md sm:text-lg leading-snug pr-4 ${
+                        isOpen ? "text-primary" : "text-gray-800"
+                      }`}
                     >
                       {item.q}
                     </span>
                   </div>
                   <span className="flex-shrink-0 mt-1">
                     <svg
-                      className={`h-6 w-6 text-gray-400 transform transition-transform duration-300 ${isOpen ? "rotate-180 text-primary" : ""}`}
+                      className={`h-6 w-6 text-gray-400 transform transition-transform duration-300 ${
+                        isOpen
+                          ? "rotate-180 text-primary"
+                          : "group-hover:text-gray-600"
+                      }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -343,9 +567,11 @@ export default function ComprehensionQuestions() {
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <div className="p-5 pt-0 text-gray-700 leading-relaxed border-t border-gray-100 bg-gray-50/50 ml-12">
+                  <div className="p-5 pt-0 text-gray-700 leading-relaxed border-t border-gray-100 bg-gray-50/50 ml-4 sm:ml-12">
                     <p className="mt-4 text-base">{item.a}</p>
                   </div>
                 </div>
@@ -353,9 +579,9 @@ export default function ComprehensionQuestions() {
             );
           })
         ) : (
-          <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
+          <div className="text-center py-16 bg-white rounded-xl border border-gray-200 shadow-sm">
             <svg
-              className="mx-auto h-12 w-12 text-gray-400"
+              className="mx-auto h-16 w-16 text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -363,23 +589,157 @@ export default function ComprehensionQuestions() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <h3 className="mt-2 text-sm font-medium text-gray-900">
+            <h3 className="mt-4 text-lg font-medium text-gray-900">
               No results found
             </h3>
-            <p className="mt-1 text-sm text-gray-500">
-              Try adjusting your search terms.
+            <p className="mt-2 text-gray-500">
+              Try adjusting your search terms or ID.
             </p>
+            <button
+              onClick={() => setSearchTerm("")}
+              className="mt-6 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Clear Search
+            </button>
           </div>
         )}
       </div>
 
-      <div className="mt-8 text-center text-sm font-medium text-gray-500">
-        Showing {filteredData.length} of {comprehensionData.length} questions
-      </div>
+      {/* Professional Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="mt-10 mb-8 max-w-4xl mx-auto w-full">
+          <div className="bg-white px-4 py-3 flex flex-col sm:flex-row items-center justify-between border border-gray-200 rounded-xl shadow-sm gap-4">
+            {/* Left: Jump to Page & Random Page */}
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+              <form
+                onSubmit={handleJumpToPage}
+                className="flex items-center gap-2"
+              >
+                <label
+                  htmlFor="jump-page"
+                  className="text-sm text-gray-600 font-medium hidden sm:inline-block"
+                >
+                  Jump to:
+                </label>
+                <input
+                  type="number"
+                  id="jump-page"
+                  min="1"
+                  max={totalPages}
+                  value={jumpPageInput}
+                  onChange={(e) => setJumpPageInput(e.target.value)}
+                  placeholder={`${currentPage}`}
+                  className="w-16 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm text-center py-1.5 border"
+                />
+                <button
+                  type="submit"
+                  className="px-3 py-1.5 bg-gray-100 text-gray-700 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Go
+                </button>
+              </form>
+
+              <div className="h-6 w-px bg-gray-300 hidden sm:block"></div>
+
+              <button
+                onClick={handleRandomPage}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-md text-sm font-bold hover:bg-primary/20 transition-colors"
+                title="Go to a random page"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+                Random
+              </button>
+            </div>
+
+            {/* Right: Standard Pagination Controls */}
+            <div className="flex items-center justify-center gap-1 w-full sm:w-auto">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                <span className="sr-only">Previous</span>
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              <div className="hidden sm:flex space-x-1">
+                {getPageNumbers().map((page, index) => (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      typeof page === "number" && handlePageChange(page)
+                    }
+                    disabled={page === "..."}
+                    className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md transition-colors ${
+                      currentPage === page
+                        ? "z-10 bg-primary border-primary text-white"
+                        : page === "..."
+                          ? "bg-white border-transparent text-gray-700 cursor-default"
+                          : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile view of current page */}
+              <span className="sm:hidden text-sm text-gray-700 font-medium px-2">
+                Page {currentPage} / {totalPages}
+              </span>
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                <span className="sr-only">Next</span>
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const creativeQuestionsData = [
   {
@@ -985,12 +985,241 @@ export const creativeQuestionsData = [
       },
     ],
   },
+  {
+    id: 42,
+    title: "Q42. Global Village and the Internet",
+    passage:
+      "Marshall McLuhan first used the term 'Global Village' in the 1960s. He explained this in his famous books: 'The Gutenberg Galaxy: The Making of Typographic Man' (1962) and 'Understanding Media: The Extensions of Man' (1964). Today, with the help of the internet, people can communicate instantly from one end of the world to the other.",
+    questions: [
+      {
+        q: "a. What is a global village?",
+        a: "A global village is a concept where, with the help of information and communication technology, all the people of the world remain connected to each other despite being far apart, making the world feel like a small village.",
+      },
+      {
+        q: "b. Explain the contribution of ARPANET and TCP/IP to the internet.",
+        a: "ARPANET, created in 1969 by the U.S. Department of Defense, was the early network for internal communication. In 1982, the invention of the TCP/IP protocol made it possible to connect different computers to a common network, establishing the foundation of the modern internet.",
+      },
+      {
+        q: "c. Explain the technology referred to in the passage that allows instant global communication.",
+        a: "The technology is the Internet. It is a vast global network of computers that allows users to exchange information, emails, and messages instantly across the world, eliminating geographical barriers.",
+      },
+      {
+        q: "d. Evaluate the advantages and disadvantages of the concept mentioned in the passage.",
+        a: "Advantages: People can communicate quickly and securely, management costs are reduced, and access to global education and healthcare is possible from home. Disadvantages: Risk of hacking and data theft, spread of false information, cultural erosion, and overuse causing physical/eye problems.",
+      },
+    ],
+  },
+  {
+    id: 43,
+    title: "Q43. E-Learning and Online Employment",
+    passage:
+      "Alongside books, the internet is now a major source of knowledge. Example: www.khanacademy.org, founded by Salman Khan, has over 10 million students. On the other hand, freelancing and outsourcing have emerged as large industries. Popular freelancing marketplaces include Upwork.com and Fiverr.com.",
+    questions: [
+      {
+        q: "a. What is E-learning?",
+        a: "E-learning means receiving education through electronic means, utilizing computers, mobile devices, and the internet to access educational materials and classes remotely.",
+      },
+      {
+        q: "b. What is an e-book?",
+        a: "An e-book (Electronic Book) is a digital version of a book that is easily downloadable and portable. It may include text, images, videos, and animations. The father of the e-book is Michael S. Hart.",
+      },
+      {
+        q: "c. Explain the technology used by students on Khan Academy.",
+        a: "The students use E-learning technology. This involves accessing educational materials, video lectures, and interactive exercises over the internet using computers or mobile devices, allowing them to study from home.",
+      },
+      {
+        q: "d. Analyze how the technology mentioned in the passage helps in economic development.",
+        a: "The passage mentions Freelancing/Outsourcing. Through online marketplaces like Upwork and Fiverr, individuals can work independently for foreign clients over the internet. This earns foreign currency, reduces unemployment, and boosts the national economy.",
+      },
+    ],
+  },
+  {
+    id: 44,
+    title: "Q44. Telemedicine and Teleconferencing",
+    passage:
+      "Telemedicine is a healthcare method where doctors and patients communicate remotely through video conferencing, email, or other digital media. It saves both time and cost. Teleconferencing, invented by Murray Turoff in 1975, is the act of holding meetings remotely using phones or computers.",
+    questions: [
+      {
+        q: "a. What is telemedicine?",
+        a: "Telemedicine is a healthcare method where doctors and patients communicate remotely through video conferencing, email, or other digital media to evaluate conditions and provide necessary advice.",
+      },
+      {
+        q: "b. Explain the use of Virtual Reality in medical training.",
+        a: "VR allows new surgeons to practice operations on virtual patients before actual surgery. This eliminates risk to real patients while allowing practical experience. Psychiatrists also use VR to reduce patients' mental stress and help them overcome fears.",
+      },
+      {
+        q: "c. Explain the technology used by doctors to treat patients in remote areas.",
+        a: "The technology is Telemedicine. It relies on ICT tools like video conferencing, email, and EHR (Electronic Health Records) databases to connect doctors with patients in remote areas, allowing diagnosis and treatment without physical travel.",
+      },
+      {
+        q: "d. Analyze the importance of teleconferencing in modern offices.",
+        a: "Teleconferencing saves time and travel expenses. It allows multiple people from different locations to participate in meetings simultaneously, making communication safe, fast, and efficient, which is vital for global business operations.",
+      },
+    ],
+  },
+  {
+    id: 45,
+    title: "Q45. Artificial Intelligence and Neural Networks",
+    passage:
+      "In 1956, John McCarthy first mentioned the term artificial intelligence. However, many consider Alan Turing as the father of AI, because in 1950, through a test called the 'Turing Test,' he showed how one could understand whether a machine can think. Modern AI uses neural networks, which can have millions of artificial neurons.",
+    questions: [
+      {
+        q: "a. What is Artificial Intelligence?",
+        a: "Artificial Intelligence (AI) is the means artificially embedding human thinking into computers or computer-based devices so they can solve problems, learn, and make decisions like humans.",
+      },
+      {
+        q: "b. Explain the Turing Test.",
+        a: "The Turing Test, proposed by Alan Turing in 1950, is a test to determine if a machine can exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human.",
+      },
+      {
+        q: "c. Explain the technology mentioned in the passage that mimics the human brain.",
+        a: "The technology is a Neural Network (or Neural Net). It is a computing system with input, hidden, and output layers that processes vast amounts of data, learns from mistakes, and corrects itself, much like the human brain.",
+      },
+      {
+        q: "d. Analyze the impact of the technology mentioned in the passage on daily life.",
+        a: "AI is used in smartphones (Face Unlock, voice commands), social media (content recommendations), navigation (Google Maps traffic analysis), language translation, and creative work (generating stories and code). It makes tasks faster and easier.",
+      },
+    ],
+  },
+  {
+    id: 46,
+    title: "Q46. Space Missions and Satellite Tech",
+    passage:
+      "Space exploration refers to sending humans or robots into outer space for research purposes. In 1957, the Soviet Union launched Sputnik-1, the first artificial satellite. Satellites are used for communication, weather forecasting, mapping, environmental monitoring, and intelligence.",
+    questions: [
+      {
+        q: "a. What is space exploration?",
+        a: "Space exploration refers to sending humans or robots into outer space for research purposes. Any mission beyond Earth's atmosphere and gravitational force is called space exploration.",
+      },
+      {
+        q: "b. Explain the use of satellites in disaster management.",
+        a: "Satellites provide early warnings for earthquakes, floods, and storms by monitoring weather patterns and atmospheric changes. They also aid in relief operations by providing real-time mapping of affected areas.",
+      },
+      {
+        q: "c. Identify and explain the technology used for global positioning.",
+        a: "The technology is GPS (Global Positioning System). It is a satellite-based one-way communication system that enables accurate determination of any location on Earth's surface by processing signals from satellites.",
+      },
+      {
+        q: "d. Evaluate the use of the technology mentioned in the passage in the military sector.",
+        a: "Satellites and ICT are crucial for defense. They are used to monitor enemy movements, guide precision weapons (missiles, drones), maintain seamless communication among forces, and gather secret military intelligence, significantly enhancing national security.",
+      },
+    ],
+  },
+  {
+    id: 47,
+    title: "Q47. Biometrics and Bioinformatics",
+    passage:
+      "Biometrics refers to the science and technology of measuring and analyzing biological data to uniquely identify individuals, such as fingerprints and DNA. Bioinformatics is an interdisciplinary subject formed through the integration of biology, computer science, and statistics to process vast biological data using a 'dry lab'.",
+    questions: [
+      {
+        q: "a. What is biometrics?",
+        a: "Biometrics is the science and technology of measuring and analyzing unique biological data (like DNA, fingerprints, retina, and voice) to uniquely identify individuals.",
+      },
+      {
+        q: "b. Explain the difference between a dry lab and a wet lab.",
+        a: "A dry lab involves biological research conducted within a computer using data and algorithms (no chemical reagents required). A wet lab is a physical laboratory where experiments are conducted using chemical reagents.",
+      },
+      {
+        q: "c. Identify and explain the technology used to identify the deceased in a disaster.",
+        a: "DNA Profiling (DNA Biometrics) is used. It collects DNA samples from blood, hair, or bone cells to create a unique profile, which can accurately identify mutilated or decomposed bodies.",
+      },
+      {
+        q: "d. Analyze the role of the technology mentioned in the passage in agriculture.",
+        a: "Bioinformatics and Genetic Engineering help in agriculture. Bioinformatics analyzes crop genomes to find desirable traits, while Genetic Engineering modifies DNA to create high-yield, pest-resistant, and drought-resistant crops to meet food demands.",
+      },
+    ],
+  },
+  {
+    id: 48,
+    title: "Q48. Nanotechnology and Plagiarism",
+    passage:
+      "Nanotechnology operates at the nanoscale, ranging from 1 to 100 nanometers. The concept was introduced by Richard Feynman in 1959. Meanwhile, in the academic world, copying someone else's work without citation is called plagiarism, which can be detected using software like Turnitin.",
+    questions: [
+      {
+        q: "a. What is nanotechnology?",
+        a: "Nanotechnology is the study, analysis, and control of substances at the molecular and atomic level (from 1 to 100 nanometers) to create new materials and devices with unique properties.",
+      },
+      {
+        q: "b. Explain the 'Top-Down' approach in nanotechnology.",
+        a: "In the top-down approach, larger materials are cut, milled, or reduced to a smaller size (nanoscale) and given a specific shape. This process is generally associated with lithography.",
+      },
+      {
+        q: "c. Identify and explain the unethical act mentioned in the passage.",
+        a: "The unethical act is Plagiarism. It refers to copying someone else's literary work, research, or ideas and publishing them under one's own name without giving proper credit to the original creator.",
+      },
+      {
+        q: "d. Analyze the impact of the technology mentioned in the passage on computer hardware.",
+        a: "Nanotechnology enables the creation of lightweight, strong, and energy-efficient computer hardware. It allows for smaller processors (like Intel chips at 30nm), massive hard drive storage capacities (terabytes), and more efficient displays.",
+      },
+    ],
+  },
+  {
+    id: 49,
+    title: "Q49. E-Governance and Digital Bangladesh",
+    passage:
+      "Digital Bangladesh means ensuring appropriate use of technology in every sector of the country. The government's a2i project works towards building a Smart Bangladesh. To build a cashless economy, Bangladesh Bank has launched a QR-code based fast payment system called 'Saj'.",
+    questions: [
+      {
+        q: "a. What is Digital Bangladesh?",
+        a: "Digital Bangladesh means ensuring the appropriate use of technology in every sector of the country, including government services (e-governance), education, and banking, to build a modern, information-based society.",
+      },
+      {
+        q: "b. Explain E-Purjee.",
+        a: "E-Purjee is the digital version of the traditional supply permit issued by sugar mills for sugarcane delivery. It allows farmers to access supply information quickly via mobile phones, eliminating physical hassle.",
+      },
+      {
+        q: "c. Identify and explain the technology used for cashless transactions.",
+        a: "The technology is the QR-code based universal fast payment system 'Saj'. It allows people to conduct financial transactions digitally using app-based cashless codes via mobile phones.",
+      },
+      {
+        q: "d. Analyze the role of the a2i project in Bangladesh's development.",
+        a: "The a2i (Aspire to Innovate) project establishes information offices at every district and sub-district. It strengthens grassroots administration and ensures citizens in the remotest areas have access to government service information.",
+      },
+    ],
+  },
+  {
+    id: 50,
+    title: "Q50. Augmented Reality and the Metaverse",
+    passage:
+      "Augmented Reality (AR) is a technology that enhances the real world by adding virtual information or objects to our surroundings, making it more realistic and useful. The Metaverse is a digital world created by combining virtual reality, augmented reality, and other technologies.",
+    questions: [
+      {
+        q: "a. What is Augmented Reality?",
+        a: "Augmented Reality (AR) is a technology that enhances the real world by overlaying virtual information, objects, images, or sounds onto our physical surroundings using cameras, sensors, and computers.",
+      },
+      {
+        q: "b. Explain the use of AR in navigation.",
+        a: "When walking on the street, a phone's camera can display directions, nearby shops, and relevant information directly on the screen overlaid on the real-world view, making navigation easier.",
+      },
+      {
+        q: "c. Explain the technology used to play games like Pokemon Go.",
+        a: "The technology is Augmented Reality (AR). It brings virtual characters into the real world by using the phone's camera and GPS, allowing players to see and interact with digital elements in their physical environment.",
+      },
+      {
+        q: "d. Analyze the concept of the Metaverse in the future of the internet.",
+        a: "The Metaverse is considered the future form of the internet. It combines VR and AR to create immersive digital worlds where users can 'live' virtually—exploring, shopping, working, and meeting friends, bringing real-world experiences into the digital realm.",
+      },
+    ],
+  },
 ];
 
 export default function CreativeQuestions() {
   const [openPassage, setOpenPassage] = useState(null);
   const [openSubQuestion, setOpenSubQuestion] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Pagination States
+  const [currentPage, setCurrentPage] = useState(1);
+  const [jumpPageInput, setJumpPageInput] = useState("");
+  const itemsPerPage = 10;
+
+  // Ref for scrolling to top of list
+  const listTopRef = useRef(null);
+
+  // Reset to page 1 whenever search term changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const togglePassage = (id) => {
     setOpenPassage(openPassage === id ? null : id);
@@ -1001,10 +1230,22 @@ export default function CreativeQuestions() {
     setOpenSubQuestion(openSubQuestion === id ? null : id);
   };
 
-  // Search logic: Matches title, passage, question text, or answer text
+  // Updated Search Logic (Strict ID Search for Numbers)
   const filteredData = creativeQuestionsData.filter((item) => {
-    const searchLower = searchTerm.toLowerCase();
+    const searchLower = searchTerm.toLowerCase().trim();
 
+    // If search is empty, show all
+    if (searchLower === "") return true;
+
+    // Check if the search term is purely a number (e.g., "9", "15")
+    const isStrictNumber = /^\d+$/.test(searchLower);
+
+    if (isStrictNumber) {
+      // If it's a pure number, strictly match ONLY the exact ID.
+      return item.id.toString() === searchLower;
+    }
+
+    // Otherwise, perform standard text search on title, passage, and questions
     const matchesTitle = item.title.toLowerCase().includes(searchLower);
     const matchesPassage = item.passage.toLowerCase().includes(searchLower);
     const matchesQuestions = item.questions.some(
@@ -1016,18 +1257,75 @@ export default function CreativeQuestions() {
     return matchesTitle || matchesPassage || matchesQuestions;
   });
 
-  return (
-    <div className="w-full font-sans py-4">
-      {/* Header and Search Bar */}
-      <div className="mb-8 border-b border-gray-200 pb-6">
-        {/* <h1 className="text-3xl font-extrabold text-primary mb-2">
-          Creative Questions
-        </h1>
-        <p className="text-gray-600 text-lg mb-6">
-          Chapter 1: Information and Communication Technology
-        </p> */}
+  // Pagination Logic
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-        <div className="relative">
+  // Handle page change with smooth scroll
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    if (listTopRef.current) {
+      listTopRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Handle Jump to specific page
+  const handleJumpToPage = (e) => {
+    e.preventDefault();
+    const pageNum = parseInt(jumpPageInput, 10);
+    if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
+      handlePageChange(pageNum);
+      setJumpPageInput("");
+    } else {
+      alert(`Please enter a valid page number between 1 and ${totalPages}`);
+    }
+  };
+
+  // Handle Jump to a random page
+  const handleRandomPage = () => {
+    if (totalPages > 1) {
+      const randomPage = Math.floor(Math.random() * totalPages) + 1;
+      handlePageChange(randomPage);
+    }
+  };
+
+  // Generate page numbers to display
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = totalPages - 3; i <= totalPages; i++) pageNumbers.push(i);
+      } else {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = currentPage - 1; i <= currentPage + 1; i++)
+          pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      }
+    }
+    return pageNumbers;
+  };
+
+  return (
+    <div className="w-full font-sans flex flex-col min-h-screen">
+      {/* Search Bar Area */}
+      <div className="mb-8 sticky top-0 z-10 bg-gray-50/90 backdrop-blur-md pt-4 pb-4 px-2 -mx-2 border-b border-gray-200">
+        <div className="relative max-w-4xl mx-auto">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <svg
               className="h-5 w-5 text-gray-400"
@@ -1045,36 +1343,64 @@ export default function CreativeQuestions() {
           </div>
           <input
             type="text"
-            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:bg-white focus:border-primary focus:ring-1 focus:ring-primary sm:text-md shadow-sm transition-all"
-            placeholder="Search passages, questions, or answers..."
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 sm:text-md shadow-sm transition-all"
+            placeholder="Search by strict ID (e.g., 9) or keywords..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
 
-      {/* Results Count */}
-      <div className="mb-4 text-sm font-medium text-gray-500">
-        Showing {filteredData.length} of {creativeQuestionsData.length} passages
+      {/* List Header Info */}
+      <div
+        ref={listTopRef}
+        className="mb-4 text-sm font-medium text-gray-500 flex justify-between items-center px-2"
+      >
+        <span>
+          Showing{" "}
+          <span className="text-gray-900 font-bold">
+            {filteredData.length > 0 ? indexOfFirstItem + 1 : 0}
+          </span>{" "}
+          to{" "}
+          <span className="text-gray-900 font-bold">
+            {Math.min(indexOfLastItem, filteredData.length)}
+          </span>{" "}
+          of{" "}
+          <span className="text-gray-900 font-bold">{filteredData.length}</span>{" "}
+          passages
+        </span>
+        <span className="hidden sm:inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+          Page {currentPage} of {totalPages || 1}
+        </span>
       </div>
 
       {/* Main Accordion List */}
-      <div className="space-y-4">
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => {
+      <div className="space-y-4 flex-grow max-w-4xl mx-auto w-full">
+        {currentItems.length > 0 ? (
+          currentItems.map((item) => {
             const isPassageOpen = openPassage === item.id;
             return (
               <div
                 key={item.id}
-                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${isPassageOpen ? "border-primary ring-1 ring-primary/20" : "border-gray-200"}`}
+                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${
+                  isPassageOpen
+                    ? "border-primary ring-1 ring-primary/20"
+                    : "border-gray-200"
+                }`}
               >
                 {/* Main Passage Header */}
                 <button
                   onClick={() => togglePassage(item.id)}
-                  className="w-full flex items-start justify-between p-5 text-left focus:outline-none bg-gray-50/50 hover:bg-gray-50 transition-colors"
+                  className="w-full flex items-start justify-between p-5 text-left focus:outline-none bg-gray-50/50 hover:bg-gray-50 transition-colors group"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white font-bold text-sm mt-0.5">
+                    <span
+                      className={`flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full font-bold text-sm mt-0.5 transition-colors ${
+                        isPassageOpen
+                          ? "bg-primary text-white"
+                          : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                      }`}
+                    >
                       {item.id}
                     </span>
                     <div>
@@ -1090,7 +1416,11 @@ export default function CreativeQuestions() {
                   </div>
                   <span className="flex-shrink-0 mt-2 ml-4">
                     <svg
-                      className={`h-6 w-6 text-gray-400 transform transition-transform duration-300 ${isPassageOpen ? "rotate-180 text-primary" : ""}`}
+                      className={`h-6 w-6 text-gray-400 transform transition-transform duration-300 ${
+                        isPassageOpen
+                          ? "rotate-180 text-primary"
+                          : "group-hover:text-gray-600"
+                      }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1107,7 +1437,11 @@ export default function CreativeQuestions() {
 
                 {/* Main Passage Content (Nested Accordions) */}
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${isPassageOpen ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isPassageOpen
+                      ? "max-h-[3000px] opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
                 >
                   <div className="p-5 border-t border-gray-100 bg-white">
                     {/* Full Passage View */}
@@ -1129,26 +1463,40 @@ export default function CreativeQuestions() {
                         return (
                           <div
                             key={idx}
-                            className={`border rounded-lg transition-all duration-300 ${isSubOpen ? "border-primary/50 bg-primary/5" : "border-gray-200 bg-white"}`}
+                            className={`border rounded-lg transition-all duration-300 ${
+                              isSubOpen
+                                ? "border-primary/50 bg-primary/5"
+                                : "border-gray-200 bg-white"
+                            }`}
                           >
                             <button
                               onClick={() => toggleSubQuestion(subId)}
-                              className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                              className="w-full flex items-center justify-between p-4 text-left focus:outline-none group"
                             >
                               <div className="flex items-center gap-3">
                                 <span
-                                  className={`flex items-center justify-center h-6 w-6 rounded-full font-bold text-xs ${isSubOpen ? "bg-primary text-white" : "bg-gray-200 text-gray-700"}`}
+                                  className={`flex items-center justify-center h-6 w-6 rounded-full font-bold text-xs transition-colors ${
+                                    isSubOpen
+                                      ? "bg-primary text-white"
+                                      : "bg-gray-200 text-gray-700 group-hover:bg-gray-300"
+                                  }`}
                                 >
                                   {letter || String.fromCharCode(97 + idx)}
                                 </span>
                                 <span
-                                  className={`font-semibold text-md ${isSubOpen ? "text-primary" : "text-gray-700"}`}
+                                  className={`font-semibold text-md ${
+                                    isSubOpen ? "text-primary" : "text-gray-700"
+                                  }`}
                                 >
                                   {questionText}
                                 </span>
                               </div>
                               <svg
-                                className={`h-5 w-5 text-gray-400 transform transition-transform duration-300 ${isSubOpen ? "rotate-180 text-primary" : ""}`}
+                                className={`h-5 w-5 text-gray-400 transform transition-transform duration-300 ${
+                                  isSubOpen
+                                    ? "rotate-180 text-primary"
+                                    : "group-hover:text-gray-600"
+                                }`}
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -1164,7 +1512,11 @@ export default function CreativeQuestions() {
 
                             {/* Sub-question Answer */}
                             <div
-                              className={`overflow-hidden transition-all duration-300 ease-in-out ${isSubOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}`}
+                              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                                isSubOpen
+                                  ? "max-h-[800px] opacity-100"
+                                  : "max-h-0 opacity-0"
+                              }`}
                             >
                               <div className="p-4 pt-0 text-gray-700 leading-relaxed text-sm ml-9">
                                 <div className="p-4 bg-white rounded border border-gray-100 shadow-sm">
@@ -1185,9 +1537,9 @@ export default function CreativeQuestions() {
             );
           })
         ) : (
-          <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
+          <div className="text-center py-16 bg-white rounded-xl border border-gray-200 shadow-sm">
             <svg
-              className="mx-auto h-12 w-12 text-gray-400"
+              className="mx-auto h-16 w-16 text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -1195,19 +1547,157 @@ export default function CreativeQuestions() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <h3 className="mt-2 text-sm font-medium text-gray-900">
+            <h3 className="mt-4 text-lg font-medium text-gray-900">
               No results found
             </h3>
-            <p className="mt-1 text-sm text-gray-500">
-              Try adjusting your search terms.
+            <p className="mt-2 text-gray-500">
+              Try adjusting your search terms or ID.
             </p>
+            <button
+              onClick={() => setSearchTerm("")}
+              className="mt-6 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Clear Search
+            </button>
           </div>
         )}
       </div>
+
+      {/* Professional Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="mt-10 mb-8 max-w-4xl mx-auto w-full">
+          <div className="bg-white px-4 py-3 flex flex-col sm:flex-row items-center justify-between border border-gray-200 rounded-xl shadow-sm gap-4">
+            {/* Left: Jump to Page & Random Page */}
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+              <form
+                onSubmit={handleJumpToPage}
+                className="flex items-center gap-2"
+              >
+                <label
+                  htmlFor="jump-page"
+                  className="text-sm text-gray-600 font-medium hidden sm:inline-block"
+                >
+                  Jump to:
+                </label>
+                <input
+                  type="number"
+                  id="jump-page"
+                  min="1"
+                  max={totalPages}
+                  value={jumpPageInput}
+                  onChange={(e) => setJumpPageInput(e.target.value)}
+                  placeholder={`${currentPage}`}
+                  className="w-16 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm text-center py-1.5 border"
+                />
+                <button
+                  type="submit"
+                  className="px-3 py-1.5 bg-gray-100 text-gray-700 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Go
+                </button>
+              </form>
+
+              <div className="h-6 w-px bg-gray-300 hidden sm:block"></div>
+
+              <button
+                onClick={handleRandomPage}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-md text-sm font-bold hover:bg-primary/20 transition-colors"
+                title="Go to a random page"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+                Random
+              </button>
+            </div>
+
+            {/* Right: Standard Pagination Controls */}
+            <div className="flex items-center justify-center gap-1 w-full sm:w-auto">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                <span className="sr-only">Previous</span>
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              <div className="hidden sm:flex space-x-1">
+                {getPageNumbers().map((page, index) => (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      typeof page === "number" && handlePageChange(page)
+                    }
+                    disabled={page === "..."}
+                    className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md transition-colors ${
+                      currentPage === page
+                        ? "z-10 bg-primary border-primary text-white"
+                        : page === "..."
+                          ? "bg-white border-transparent text-gray-700 cursor-default"
+                          : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile view of current page */}
+              <span className="sm:hidden text-sm text-gray-700 font-medium px-2">
+                Page {currentPage} / {totalPages}
+              </span>
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                <span className="sr-only">Next</span>
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

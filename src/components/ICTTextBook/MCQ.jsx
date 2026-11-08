@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export const mcqData = [
   // --- Page 71: Information & Communication Technology ---
@@ -3623,15 +3623,615 @@ export const mcqData = [
     ans: "a",
     exp: "Sending unsolicited bulk messages is spamming.",
   },
-];
+  {
+    id: 337,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "According to the text, what is the raw material of information?",
+    opts: ["Software", "Data", "Hardware", "Technology"],
+    ans: "b",
+    exp: "Data is defined as the raw material of information, consisting of random letters, numbers, symbols, or images.",
+  },
+  {
+    id: 338,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "The word 'Technology' is derived from which two Greek words?",
+    opts: [
+      "Techne and Logos",
+      "Techno and Logy",
+      "Tech and Nology",
+      "Techni and Logos",
+    ],
+    ans: "a",
+    exp: "Technology comes from 'Techne' (meaning art, craft, or skill) and 'Logos' (meaning study or science).",
+  },
+  {
+    id: 339,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "In which year did Bangladesh enact the Right to Information Act?",
+    opts: ["2006", "2008", "2009", "2012"],
+    ans: "c",
+    exp: "Bangladesh enacted the Right to Information Act in 2009 to help people access information easily.",
+  },
+  {
+    id: 340,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "What groundbreaking theory did Claude Elwood Shannon discover in 1937 while at MIT?",
+    opts: [
+      "Theory of Relativity",
+      "Digital Circuit Design Theory",
+      "Quantum Mechanics",
+      "Information Theory",
+    ],
+    ans: "b",
+    exp: "In 1937, at just 27 years old, Claude Shannon discovered the Digital Circuit Design Theory.",
+  },
+  {
+    id: 341,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "Who is known as the Father of the Mobile Phone?",
+    opts: [
+      "Martin Cooper",
+      "Raymond Tomlinson",
+      "Claude Shannon",
+      "Michael Hart",
+    ],
+    ans: "a",
+    exp: "American citizen Martin Cooper invented the first handheld mobile phone in 1970.",
+  },
+  {
+    id: 342,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "What was the precursor to the modern internet created in 1969 by the U.S. Department of Defense?",
+    opts: ["TCP/IP", "ARPANET", "INTRANET", "NSFNET"],
+    ans: "b",
+    exp: "In 1969, the ARPANET (Advanced Research Projects Agency Network) was created for internal communication.",
+  },
+  {
+    id: 343,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "In which year was the TCP/IP protocol invented, establishing the foundation of the modern internet?",
+    opts: ["1969", "1975", "1982", "1990"],
+    ans: "c",
+    exp: "In 1982, the invention of the TCP/IP protocol made it possible to connect different computers to a common network.",
+  },
+  {
+    id: 344,
+    section: "ICT Fundamentals",
+    type: "General",
+    q: "Who is known as the Father of Email?",
+    opts: [
+      "Raymond Samuel Tomlinson",
+      "Martin Cooper",
+      "Murray Turoff",
+      "Richard Stallman",
+    ],
+    ans: "a",
+    exp: "Raymond Samuel Tomlinson was the first to use an email program to send a message from one host computer to another.",
+  },
 
+  // --- Section: Global Village & Communication ---
+  {
+    id: 345,
+    section: "Communication",
+    type: "General",
+    q: "Which book by Marshall McLuhan was published in 1962?",
+    opts: [
+      "Understanding Media",
+      "The Gutenberg Galaxy",
+      "The Medium is the Massage",
+      "War and Peace in the Global Village",
+    ],
+    ans: "b",
+    exp: "McLuhan's book 'The Gutenberg Galaxy: The Making of Typographic Man' was published in 1962.",
+  },
+  {
+    id: 346,
+    section: "Communication",
+    type: "General",
+    q: "Who invented the teleconferencing system in 1975?",
+    opts: [
+      "Martin Cooper",
+      "Murray Turoff",
+      "Raymond Tomlinson",
+      "Claude Shannon",
+    ],
+    ans: "b",
+    exp: "The teleconferencing method was invented by Murray Turoff in 1975.",
+  },
+  {
+    id: 347,
+    section: "Communication",
+    type: "General",
+    q: "What is a notable example of a digital telephone network mentioned in the text?",
+    opts: ["GSM", "ISDN", "LTE", "VoIP"],
+    ans: "b",
+    exp: "ISDN (Integrated Services Digital Network) is a notable example of a digital telephone network.",
+  },
+
+  // --- Section: Employment & Education ---
+  {
+    id: 348,
+    section: "Employment",
+    type: "General",
+    q: "Which of the following is a Bangladeshi bid-based freelancing platform?",
+    opts: ["Upwork", "Fiverr", "Belancer", "Freelancer"],
+    ans: "c",
+    exp: "Belancer.com is mentioned as a Bangladeshi bid-based platform.",
+  },
+  {
+    id: 349,
+    section: "Education",
+    type: "General",
+    q: "Who founded www.khanacademy.org?",
+    opts: ["Salman Khan", "Michael S. Hart", "Mark Zuckerberg", "Jawed Karim"],
+    ans: "a",
+    exp: "Khan Academy was founded by Salman Khan and has over 10 million students.",
+  },
+  {
+    id: 350,
+    section: "Education",
+    type: "General",
+    q: "Who is known as the father of the e-book and founder of the Gutenberg Project?",
+    opts: [
+      "Salman Khan",
+      "Michael S. Hart",
+      "Richard Stallman",
+      "Raymond Tomlinson",
+    ],
+    ans: "b",
+    exp: "Michael S. Hart, founder of the Gutenberg Project, is known as the father of the e-book.",
+  },
+  {
+    id: 351,
+    section: "Education",
+    type: "General",
+    q: "When was the concept of Distance Learning first conceptualized?",
+    opts: ["1840", "1900", "1960", "1990"],
+    ans: "a",
+    exp: "Distance learning is part of e-learning and was first conceptualized in 1840.",
+  },
+
+  // --- Section: Medical & Research ---
+  {
+    id: 352,
+    section: "Medical",
+    type: "General",
+    q: "For how long is a patent usually valid?",
+    opts: ["10 years", "15 years", "20 years", "30 years"],
+    ans: "c",
+    exp: "A patent is an exclusive right granted by governments for inventions, usually valid for 20 years.",
+  },
+  {
+    id: 353,
+    section: "Office",
+    type: "General",
+    q: "How much free cloud storage space does a standard Google account get on Google Drive?",
+    opts: ["5 GB", "10 GB", "15 GB", "20 GB"],
+    ans: "c",
+    exp: "Each Google account gets 15 GB of free space on Google Drive.",
+  },
+
+  // --- Section: Smart Home & IoT ---
+  {
+    id: 354,
+    section: "Smart Home",
+    type: "General",
+    q: "According to Professor Michael Wang of Columbia University, what percentage of fire-related accidents in the garment industry can be prevented using IoT?",
+    opts: ["50%", "70%", "80%", "90%"],
+    ans: "d",
+    exp: "Professor Michael Wang showed that 90 percent of fire-related accidents in the garment industry can be prevented with IoT.",
+  },
+
+  // --- Section: Business & Commerce ---
+  {
+    id: 355,
+    section: "Business & Commerce",
+    type: "General",
+    q: "Who invented the online shopping method in 1979?",
+    opts: ["Michael Aldrich", "Jeff Bezos", "Jack Ma", "Pierre Omidyar"],
+    ans: "a",
+    exp: "Michael Aldrich from Sussex, England, invented the online shopping method in 1979.",
+  },
+  {
+    id: 356,
+    section: "Business & Commerce",
+    type: "General",
+    q: "With what did the history of E-commerce begin in 1960?",
+    opts: [
+      "Amazon",
+      "eBay",
+      "Electronic Data Interchange (EDI)",
+      "Mobile Banking",
+    ],
+    ans: "c",
+    exp: "E-commerce began in 1960 with Electronic Data Interchange (EDI).",
+  },
+
+  // --- Section: Entertainment & News ---
+  {
+    id: 357,
+    section: "News",
+    type: "General",
+    q: "Who is known as the pioneer of the blogging concept?",
+    opts: [
+      "Richard Stallman",
+      "Jawed Karim",
+      "Mark Zuckerberg",
+      "Michael Hart",
+    ],
+    ans: "a",
+    exp: "Richard Stallman is known as the pioneer of the blogging concept.",
+  },
+
+  // --- Section: Virtual Reality ---
+  {
+    id: 358,
+    section: "VR",
+    type: "General",
+    q: "In virtual reality, what connects the user to the virtual environment?",
+    opts: ["Reality Simulator", "Effector", "Geometry", "Application"],
+    ans: "b",
+    exp: "An effector (like HMD, data gloves, or body suits) is a special interface device that connects the user to the virtual environment.",
+  },
+  {
+    id: 359,
+    section: "VR",
+    type: "General",
+    q: "What provides sensitive information to the effector in a virtual reality system?",
+    opts: ["Reality Simulator", "Geometry", "Application", "Actuator"],
+    ans: "a",
+    exp: "A Reality Simulator is hardware that provides sensitive information to the effector, such as sensors and audio/video systems.",
+  },
+
+  // --- Section: Artificial Intelligence ---
+  {
+    id: 360,
+    section: "AI",
+    type: "General",
+    q: "Who created the 'Turing Test' in 1950 to determine if a machine can think?",
+    opts: ["John McCarthy", "Alan Turing", "Claude Shannon", "Richard Feynman"],
+    ans: "b",
+    exp: "Alan Turing is considered by many as the father of AI because he showed the Turing Test in 1950.",
+  },
+  {
+    id: 361,
+    section: "AI",
+    type: "General",
+    q: "Which expert system is used to find solutions to complex medical problems?",
+    opts: ["XCON", "CADUCEUS and MYCIN", "Alexa", "Siri"],
+    ans: "b",
+    exp: "Doctors can query expert systems like CADUCEUS and MYCIN to find solutions to complex medical problems.",
+  },
+  {
+    id: 362,
+    section: "AI",
+    type: "General",
+    q: "Which programming languages are specifically mentioned as being used to implement artificial intelligence?",
+    opts: ["HTML, CSS, JS", "PROLOG, LISP", "PHP, RUBY", "SQL, PL/SQL"],
+    ans: "b",
+    exp: "Programming languages such as PROLOG, LISP, C/C++, PYTHON, JAVA, PERL, HASKELL, etc., are used to implement AI.",
+  },
+  {
+    id: 363,
+    section: "AI",
+    type: "General",
+    q: "When was the beta version of the ChatGPT chatbot released?",
+    opts: [
+      "November 30, 2022",
+      "January 1, 2023",
+      "October 15, 2021",
+      "December 25, 2022",
+    ],
+    ans: "a",
+    exp: "On November 30, 2022, the beta version of a chatbot named ChatGPT was released.",
+  },
+
+  // --- Section: Robotics ---
+  {
+    id: 364,
+    section: "Robotics",
+    type: "General",
+    q: "Who introduced the word 'robot' in a play published in 1920?",
+    opts: [
+      "Joseph Engelberger",
+      "Karel Capek",
+      "George Devol",
+      "Jack Williamson",
+    ],
+    ans: "b",
+    exp: "The word Robotics comes from the Czech word 'robot,' which was introduced by Czech writer Karel Capek in a play published in 1920.",
+  },
+  {
+    id: 365,
+    section: "Robotics",
+    type: "General",
+    q: "From which Slavic word does 'robot' originate, meaning 'worker'?",
+    opts: ["Robota", "Robotnik", "Rabota", "Robotus"],
+    ans: "a",
+    exp: "The word 'robot' comes from the Slavic word 'robota,' which means 'worker'.",
+  },
+
+  // --- Section: Space Exploration ---
+  {
+    id: 366,
+    section: "Space",
+    type: "General",
+    q: "Who became the first human in space in 1961?",
+    opts: [
+      "Neil Armstrong",
+      "Yuri Gagarin",
+      "Edwin Aldrin",
+      "Valentina Tereshkova",
+    ],
+    ans: "b",
+    exp: "In 1961, Yuri Gagarin became the first human in space.",
+  },
+  {
+    id: 367,
+    section: "Space",
+    type: "General",
+    q: "Who was the first woman in space in 1963?",
+    opts: [
+      "Sally Ride",
+      "Valentina Tereshkova",
+      "Kalpana Chawla",
+      "Mae Jemison",
+    ],
+    ans: "b",
+    exp: "In 1963, Valentina Tereshkova became the first woman in space.",
+  },
+  {
+    id: 368,
+    section: "Space",
+    type: "General",
+    q: "In which year was the Hubble Space Telescope launched into space?",
+    opts: ["1980", "1985", "1990", "1995"],
+    ans: "c",
+    exp: "The Hubble Space Telescope was launched into space in 1990 through the joint efforts of NASA and ESA.",
+  },
+
+  // --- Section: Production & Defense ---
+  {
+    id: 369,
+    section: "Production",
+    type: "General",
+    q: "What does RFID stand for?",
+    opts: [
+      "Radio Frequency Identification",
+      "Random Frequency Identification",
+      "Rapid Frequency Information Device",
+      "Radio Fiber Identification",
+    ],
+    ans: "a",
+    exp: "RFID stands for Radio Frequency Identification. It is a small electronic device used to identify objects, people, or animals.",
+  },
+
+  // --- Section: Biometrics & Bioinformatics ---
+  {
+    id: 370,
+    section: "Biometrics",
+    type: "General",
+    q: "Who developed the mathematical classification of the fingerprint system in 1897?",
+    opts: [
+      "Alec Jeffreys",
+      "Khan Bahadur Qazi Azizul Haque",
+      "Dr. Walter Maner",
+      "Dr. Maksudul Alam",
+    ],
+    ans: "b",
+    exp: "In 1897, Bengali scientist Khan Bahadur Qazi Azizul Haque developed the mathematical classification of the fingerprint system.",
+  },
+  {
+    id: 371,
+    section: "Biometrics",
+    type: "General",
+    q: "Who introduced the DNA Profiling method in 1986?",
+    opts: [
+      "Alec Jeffreys",
+      "Khan Bahadur Qazi Azizul Haque",
+      "Richard Feynman",
+      "James Watson",
+    ],
+    ans: "a",
+    exp: "Scientist Alec Jeffreys introduced the DNA Profiling method in 1986.",
+  },
+  {
+    id: 372,
+    section: "Bioinformatics",
+    type: "General",
+    q: "When biological research is conducted within a computer using data, what is it called?",
+    opts: ["Wet lab", "Dry lab", "In-vivo lab", "Warm lab"],
+    ans: "b",
+    exp: "When biological research is conducted within a computer using data, it is called a dry lab.",
+  },
+
+  // --- Section: Genetic Engineering ---
+  {
+    id: 373,
+    section: "Genetic Eng",
+    type: "General",
+    q: "In which science fiction novel was the term 'genetic engineering' used for the first time?",
+    opts: [
+      "Frankenstein",
+      "Dragon's Island",
+      "Brave New World",
+      "The Time Machine",
+    ],
+    ans: "b",
+    exp: "In his science fiction novel 'Dragon's Island,' Jack Williamson used the term genetic engineering for the first time.",
+  },
+  {
+    id: 374,
+    section: "Genetic Eng",
+    type: "General",
+    q: "In which year was the first transgenic organism developed?",
+    opts: ["1970", "1972", "1973", "1980"],
+    ans: "c",
+    exp: "In 1973, the first transgenic organism was developed.",
+  },
+
+  // --- Section: Nanotechnology ---
+  {
+    id: 375,
+    section: "Nanotech",
+    type: "General",
+    q: "What invention in 1980 allowed scientists to observe atoms directly, making nanotechnology a reality?",
+    opts: [
+      "Electron Microscope",
+      "Scanning Tunneling Microscope (STM)",
+      "X-Ray Crystallography",
+      "MRI",
+    ],
+    ans: "b",
+    exp: "In 1980, the invention of STM (Scanning Tunneling Microscope) allowed scientists to observe atoms directly.",
+  },
+
+  // --- Section: Ethics & Cyber Laws ---
+  {
+    id: 376,
+    section: "Computer Crime",
+    type: "General",
+    q: "Who introduced the field known as Computer Ethics?",
+    opts: [
+      "Ramon C. Barquin",
+      "Dr. Walter Maner",
+      "Richard Stallman",
+      "Jack Williamson",
+    ],
+    ans: "b",
+    exp: "The field of Computer Ethics was first introduced by Dr. Walter Maner.",
+  },
+  {
+    id: 377,
+    section: "Computer Crime",
+    type: "General",
+    q: "Who presented the 'Ten Commandments of Computer Ethics' in 1992?",
+    opts: [
+      "Dr. Walter Maner",
+      "Ramon C. Barquin",
+      "Tim Berners-Lee",
+      "Steve Jobs",
+    ],
+    ans: "b",
+    exp: "In 1992, the Computer Ethics Institute formulated ten commandments of computer ethics, which were presented by Ramon C. Barquin.",
+  },
+  {
+    id: 378,
+    section: "Computer Crime",
+    type: "Polytomous",
+    q: "Which of the following are types of Plagiarism? i. Clone Plagiarism ii. Remix Plagiarism iii. Recycle Plagiarism. Which of the following is correct?",
+    opts: ["i & ii", "i & iii", "ii & iii", "i, ii & iii"],
+    ans: "d",
+    exp: "Clone, Remix, and Recycle are all types of plagiarism mentioned in the text, along with Hybrid, 404 Error, Aggregator, and Retweet.",
+  },
+  {
+    id: 379,
+    section: "Computer Crime",
+    type: "General",
+    q: "What is self-plagiarism also known as?",
+    opts: [
+      "Clone Plagiarism",
+      "Recycle Plagiarism",
+      "Hybrid Plagiarism",
+      "Aggregator Plagiarism",
+    ],
+    ans: "b",
+    exp: "Recycle Plagiarism refers to reusing content from one's own previous work without proper citation and is also known as self-plagiarism.",
+  },
+  {
+    id: 380,
+    section: "Computer Crime",
+    type: "General",
+    q: "Under Section 57(1) of the ICT Act 2006 in Bangladesh, what is the maximum punishment for publishing false or obscene content online?",
+    opts: [
+      "5 years imprisonment",
+      "7 years imprisonment",
+      "10 years imprisonment",
+      "14 years imprisonment",
+    ],
+    ans: "c",
+    exp: "Section 57(1) states that it can lead to up to 10 years of imprisonment and a fine up to 1 crore BDT.",
+  },
+
+  // --- Section: Economic Development ---
+  {
+    id: 381,
+    section: "Economic Dev",
+    type: "General",
+    q: "Where is the four-tier National Data Center located in Bangladesh?",
+    opts: [
+      "Kaliakair, Gazipur",
+      "Motijheel, Dhaka",
+      "Agrabad, Chittagong",
+      "Uttara, Dhaka",
+    ],
+    ans: "a",
+    exp: "The four-tier National Data Center has been established in Kaliakair, Gazipur.",
+  },
+  {
+    id: 382,
+    section: "Economic Dev",
+    type: "General",
+    q: "What is the name of the QR-code based universal fast payment system launched by Bangladesh Bank?",
+    opts: ["bKash", "Nagad", "Saj", "Rocket"],
+    ans: "c",
+    exp: "To build a cashless economy, Bangladesh Bank has launched a QR-code based universal fast payment system called 'Saj'.",
+  },
+  {
+    id: 383,
+    section: "Economic Dev",
+    type: "General",
+    q: "What does the a2i project stand for?",
+    opts: [
+      "Access to Information",
+      "Aspire to Innovate",
+      "Aim to Internet",
+      "Act to Interact",
+    ],
+    ans: "b",
+    exp: "The government's a2i project stands for 'Aspire to Innovate' and works towards building a Smart Bangladesh.",
+  },
+
+  // --- Section: Visual Learning Gallery Specifics (Stem Based) ---
+  {
+    id: 384,
+    section: "Pioneers",
+    type: "Uniform Stem",
+    stem: "He was the first to use an email program to send a message from one host computer to another and brought a revolutionary change in the global exchange of information.",
+    q: "Who is being described in the stem?",
+    opts: [
+      "Claude Elwood Shannon",
+      "Raymond Samuel Tomlinson",
+      "Martin Cooper",
+      "Richard Stallman",
+    ],
+    ans: "b",
+    exp: "Raymond Samuel Tomlinson is known as the Father of Email for sending the first email between host computers.",
+  },
+  {
+    id: 385,
+    section: "Applications",
+    type: "Uniform Stem",
+    stem: "This advanced robotic spacecraft was launched by NASA in 2012 and is known as a 'complete chemical laboratory'. It is the size of a small car and includes a laser system to break rocks.",
+    q: "What is the name of this robotic spacecraft?",
+    opts: ["Apollo 11", "Curiosity Rover", "Sputnik-1", "Voyager-1"],
+    ans: "b",
+    exp: "NASA's Curiosity Rover was launched in 2012 and is an advanced robotic vehicle exploring Mars.",
+  },
+];
 // Helper function to insert line breaks dynamically
 const formatQuestionText = (text) => {
   if (!text) return "";
   let formatted = text;
 
   // 1. Add line break before Roman numerals (i., ii., iii., etc.)
-  // The regex looks for a space followed by a roman numeral and a dot.
   formatted = formatted.replace(
     /(\s(?:i{1,3}|iv|v|vi{0,3}|ix)\.\s)/g,
     '<br/><span class="inline-block mt-1.5 ml-2">$1</span>',
@@ -3654,7 +4254,11 @@ export default function MCQ() {
 
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
+  const [jumpPageInput, setJumpPageInput] = useState("");
   const itemsPerPage = 10;
+
+  // Ref for scrolling to top of list
+  const listTopRef = useRef(null);
 
   // Reset page to 1 when search term changes
   useEffect(() => {
@@ -3690,11 +4294,20 @@ export default function MCQ() {
     });
   };
 
-  // 4. Bulletproof Search Logic
+  // 4. Updated Search Logic (Strict ID Search for Numbers)
   const filteredData = mcqData.filter((item) => {
-    if (!searchTerm) return true;
-    const searchLower = searchTerm.toLowerCase();
+    const searchLower = searchTerm.toLowerCase().trim();
+    if (searchLower === "") return true;
 
+    // Check if the search term is purely a number (e.g., "9", "15")
+    const isStrictNumber = /^\d+$/.test(searchLower);
+
+    if (isStrictNumber) {
+      // If it's a pure number, strictly match ONLY the exact ID.
+      return item.id.toString() === searchLower;
+    }
+
+    // Otherwise, perform standard text search
     const matchesQuestion =
       item.q?.toLowerCase().includes(searchLower) || false;
     const matchesSection =
@@ -3732,7 +4345,59 @@ export default function MCQ() {
   // Handle Page Change & Scroll to Top
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (listTopRef.current) {
+      listTopRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Handle Jump to specific page
+  const handleJumpToPage = (e) => {
+    e.preventDefault();
+    const pageNum = parseInt(jumpPageInput, 10);
+    if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
+      handlePageChange(pageNum);
+      setJumpPageInput("");
+    } else {
+      alert(`Please enter a valid page number between 1 and ${totalPages}`);
+    }
+  };
+
+  // Handle Jump to a random page
+  const handleRandomPage = () => {
+    if (totalPages > 1) {
+      const randomPage = Math.floor(Math.random() * totalPages) + 1;
+      handlePageChange(randomPage);
+    }
+  };
+
+  // Generate page numbers to display
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = totalPages - 3; i <= totalPages; i++) pageNumbers.push(i);
+      } else {
+        pageNumbers.push(1);
+        pageNumbers.push("...");
+        for (let i = currentPage - 1; i <= currentPage + 1; i++)
+          pageNumbers.push(i);
+        pageNumbers.push("...");
+        pageNumbers.push(totalPages);
+      }
+    }
+    return pageNumbers;
   };
 
   return (
@@ -3768,14 +4433,17 @@ export default function MCQ() {
           <input
             type="text"
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary sm:text-md"
-            placeholder="Search questions, options, or topics..."
+            placeholder="Search by strict ID (e.g., 9) or keywords..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
         {/* Stats Bar */}
-        <div className="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+        <div
+          ref={listTopRef}
+          className="flex justify-between items-center mb-6 bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+        >
           <span className="font-semibold text-gray-700">
             Total Questions: {mcqData.length} (Showing {filteredData.length})
           </span>
@@ -3788,7 +4456,6 @@ export default function MCQ() {
         <div className="space-y-6">
           {Object.keys(groupedData).length > 0 ? (
             Object.entries(groupedData).map(([sectionName, questions]) => {
-              // FIX: Default to open (true) unless explicitly set to false
               const isSectionOpen = openSections[sectionName] !== false;
 
               return (
@@ -3845,7 +4512,6 @@ export default function MCQ() {
                                   {q.id}
                                 </span>
                                 <span className="font-semibold text-gray-800 line-clamp-1">
-                                  {/* Strip HTML tags for the summary line */}
                                   {q.stem
                                     ? "Stem-Based Question"
                                     : q.q.replace(/(<([^>]+)>)/gi, "")}
@@ -3880,7 +4546,6 @@ export default function MCQ() {
                                   </div>
                                 )}
 
-                                {/* Apply the multiline formatting here */}
                                 <div
                                   className="text-gray-900 font-medium mb-4 leading-relaxed"
                                   dangerouslySetInnerHTML={{
@@ -4036,9 +4701,9 @@ export default function MCQ() {
               );
             })
           ) : (
-            <div className="text-center py-12 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="text-center py-16 bg-white rounded-xl border border-gray-200 shadow-sm">
               <svg
-                className="mx-auto h-12 w-12 text-gray-400"
+                className="mx-auto h-16 w-16 text-gray-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -4046,69 +4711,154 @@ export default function MCQ() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="mt-2 text-lg font-medium text-gray-900">
+              <h3 className="mt-4 text-lg font-medium text-gray-900">
                 No results found
               </h3>
-              <p className="mt-1 text-gray-500">
-                Try adjusting your search terms.
+              <p className="mt-2 text-gray-500">
+                Try adjusting your search terms or ID.
               </p>
+              <button
+                onClick={() => setSearchTerm("")}
+                className="mt-6 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Clear Search
+              </button>
             </div>
           )}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Professional Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 mb-6">
-            <div className="join shadow-md">
-              <button
-                className="join-item btn bg-white hover:bg-gray-100 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-              >
-                «
-              </button>
+          <div className="mt-10 mb-8 max-w-4xl mx-auto w-full">
+            <div className="bg-white px-4 py-3 flex flex-col sm:flex-row items-center justify-between border border-gray-200 rounded-xl shadow-sm gap-4">
+              {/* Left: Jump to Page & Random Page */}
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+                <form
+                  onSubmit={handleJumpToPage}
+                  className="flex items-center gap-2"
+                >
+                  <label
+                    htmlFor="jump-page"
+                    className="text-sm text-gray-600 font-medium hidden sm:inline-block"
+                  >
+                    Jump to:
+                  </label>
+                  <input
+                    type="number"
+                    id="jump-page"
+                    min="1"
+                    max={totalPages}
+                    value={jumpPageInput}
+                    onChange={(e) => setJumpPageInput(e.target.value)}
+                    placeholder={`${currentPage}`}
+                    className="w-16 rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm text-center py-1.5 border"
+                  />
+                  <button
+                    type="submit"
+                    className="px-3 py-1.5 bg-gray-100 text-gray-700 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    Go
+                  </button>
+                </form>
 
-              {/* Generate Page Numbers dynamically */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter((page) => {
-                  if (totalPages <= 7) return true;
-                  if (page === 1 || page === totalPages) return true;
-                  if (page >= currentPage - 1 && page <= currentPage + 1)
-                    return true;
-                  return false;
-                })
-                .map((page, index, array) => {
-                  const prevPage = array[index - 1];
-                  const showEllipsis = prevPage && page - prevPage > 1;
+                <div className="h-6 w-px bg-gray-300 hidden sm:block"></div>
 
-                  return (
-                    <React.Fragment key={page}>
-                      {showEllipsis && (
-                        <button className="join-item btn bg-white pointer-events-none">
-                          ...
-                        </button>
-                      )}
-                      <button
-                        className={`join-item btn ${currentPage === page ? "bg-primary text-white hover:bg-primary/90 border-primary" : "bg-white text-gray-700 hover:bg-gray-100"}`}
-                        onClick={() => handlePageChange(page)}
-                      >
-                        {page}
-                      </button>
-                    </React.Fragment>
-                  );
-                })}
+                <button
+                  onClick={handleRandomPage}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-md text-sm font-bold hover:bg-primary/20 transition-colors"
+                  title="Go to a random page"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                  Random
+                </button>
+              </div>
 
-              <button
-                className="join-item btn bg-white hover:bg-gray-100 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-              >
-                »
-              </button>
+              {/* Right: Standard Pagination Controls */}
+              <div className="flex items-center justify-center gap-1 w-full sm:w-auto">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <span className="sr-only">Previous</span>
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+
+                <div className="hidden sm:flex space-x-1">
+                  {getPageNumbers().map((page, index) => (
+                    <button
+                      key={index}
+                      onClick={() =>
+                        typeof page === "number" && handlePageChange(page)
+                      }
+                      disabled={page === "..."}
+                      className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md transition-colors ${
+                        currentPage === page
+                          ? "z-10 bg-primary border-primary text-white"
+                          : page === "..."
+                            ? "bg-white border-transparent text-gray-700 cursor-default"
+                            : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Mobile view of current page */}
+                <span className="sm:hidden text-sm text-gray-700 font-medium px-2">
+                  Page {currentPage} / {totalPages}
+                </span>
+
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="relative inline-flex items-center px-2 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <span className="sr-only">Next</span>
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -4116,7 +4866,7 @@ export default function MCQ() {
         {/* Pagination Info */}
         {filteredData.length > 0 && (
           <div className="text-center text-sm font-medium text-gray-500 mb-8">
-            Showing {indexOfFirstItem + 1} to{" "}
+            Showing {filteredData.length > 0 ? indexOfFirstItem + 1 : 0} to{" "}
             {Math.min(indexOfLastItem, filteredData.length)} of{" "}
             {filteredData.length} questions
           </div>
